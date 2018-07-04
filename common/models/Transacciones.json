@@ -1,0 +1,202 @@
+{
+	"name": "Transacciones",
+	"properties": {
+		"codTrans": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"id": 1,
+			"mysql": {
+				"columnName": "cod_trans",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"fechaTrans": {
+			"type": "date",
+			"required": false,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "fecha_trans",
+				"dataType": "date",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"codCuenta": {
+			"type": "string",
+			"required": false,
+			"length": 20,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "cod_cuenta",
+				"dataType": "varchar",
+				"dataLength": 20,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"descCuenta": {
+			"type": "string",
+			"required": false,
+			"length": 45,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "desc_cuenta",
+				"dataType": "varchar",
+				"dataLength": 45,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"debe": {
+			"type": "number",
+			"required": false,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "debe",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "Y"
+			}
+		},
+		"haber": {
+			"type": "number",
+			"required": false,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "haber",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "Y"
+			}
+		},
+		"facturacomp": {
+			"type": "number",
+			"required": false,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"mysql": {
+				"columnName": "facturacomp",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "Y"
+			}
+		},
+		"facturad": {
+			"type": "number",
+			"required": false,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"mysql": {
+				"columnName": "facturad",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "Y"
+			}
+		},
+		"transmanu": {
+			"type": "string",
+			"required": false,
+			"length": 9,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "transmanu",
+				"dataType": "varchar",
+				"dataLength": 9,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"recibocomp": {
+			"type": "string",
+			"required": false,
+			"length": 9,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "recibocomp",
+				"dataType": "varchar",
+				"dataLength": 9,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"recibod": {
+			"type": "string",
+			"required": false,
+			"length": 9,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "recibod",
+				"dataType": "varchar",
+				"dataLength": 9,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "dbcontarotary",
+			"table": "transacciones"
+		}
+	},
+	"acls": [
+		{
+		  "principalType": "ROLE",
+		  "principalId": "Administrador",
+		  "permission": "ALLOW",
+		  "accessType": "*"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "Usuario",
+			"permission": "ALLOW",
+			"accessType": "READ"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "$everyone",
+			"permission": "DENY",
+			"accessType": "*"
+		  }
+	  ]
+}

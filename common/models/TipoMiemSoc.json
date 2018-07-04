@@ -1,0 +1,82 @@
+{
+	"name": "Tipo_Miem_Soc",
+	"properties": {
+		"codTipoMiemsoc": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"id": 1,
+			"mysql": {
+				"columnName": "cod_tipo_miemsoc",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"descripcion": {
+			"type": "string",
+			"required": true,
+			"length": 25,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "descripcion",
+				"dataType": "varchar",
+				"dataLength": 25,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"estado": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 3,
+			"scale": 0,
+			"mysql": {
+				"columnName": "estado",
+				"dataType": "tinyint",
+				"dataLength": null,
+				"dataPrecision": 3,
+				"dataScale": 0,
+				"nullable": "N"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "dbcontarotary",
+			"table": "tipo_miem_soc"
+		}
+	},
+	"acls": [
+		{
+		  "principalType": "ROLE",
+		  "principalId": "Administrador",
+		  "permission": "ALLOW",
+		  "accessType": "*"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "Usuario",
+			"permission": "ALLOW",
+			"accessType": "READ"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "$everyone",
+			"permission": "DENY",
+			"accessType": "*"
+		  }
+	  ]
+}

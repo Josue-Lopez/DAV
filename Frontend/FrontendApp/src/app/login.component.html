@@ -1,0 +1,46 @@
+<div class="container fluid">
+    <div class="container" id="login-div">
+            <div class="container">
+                    <div class="row vertical-offset-100">
+                        <div class="col-md-4 col-md-offset-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">                                
+                                    <div class="text-right">
+                                    </div>
+                                    <div class="user-panel">
+                                        <div class="pull-left image">
+                                            <img src="https://i.pinimg.com/originals/4e/b9/b9/4eb9b91c1484853ae724bc267070fb97.png" class="img-responsive" alt="Conxole Admin"/>
+
+                                        </div>
+                                        <div class="pull-left info" style="color: black">
+                                            <p>CLUB ROTARIO</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <form accept-charset="UTF-8" role="form" class="form-signin">
+                                            <fieldset>
+                                                    <legend>Login</legend>
+                                                    <form (ngSubmit)="login()" #formLogin="ngForm">
+                                                        <div class="form-group">
+                                                            <label for="username">Usuario</label>
+                                                            <input id="username" name="username" [(ngModel)]="username" class="form-control" type="text" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="password">Password</label>
+                                                            <input id="password" name="password" [(ngModel)]="password" class="form-control" type="password" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-success" [disabled]="!formLogin.form.valid">Login</button>
+                                                        </div>
+                                                    </form>
+                                                </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    </div>
+</div>

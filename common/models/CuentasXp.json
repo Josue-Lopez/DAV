@@ -1,0 +1,157 @@
+{
+	"name": "Cuentas_Xp",
+	"properties": {
+		"codCxp": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"id": 1,
+			"mysql": {
+				"columnName": "cod_cxp",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"numeroFactura": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"mysql": {
+				"columnName": "numero_factura",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "N"
+			}
+		},
+		"numeroCuota": {
+			"type": "string",
+			"required": true,
+			"length": 10,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "numero_cuota",
+				"dataType": "varchar",
+				"dataLength": 10,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"interes": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "interes",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "N"
+			}
+		},
+		"montoAmorti": {
+			"type": "number",
+			"required": false,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "monto_amorti",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "Y"
+			}
+		},
+		"montoCuota": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "monto_cuota",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "N"
+			}
+		},
+		"fechaPagar": {
+			"type": "date",
+			"required": false,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "fecha_pagar",
+				"dataType": "date",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"estado": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 3,
+			"scale": 0,
+			"mysql": {
+				"columnName": "estado",
+				"dataType": "tinyint",
+				"dataLength": null,
+				"dataPrecision": 3,
+				"dataScale": 0,
+				"nullable": "N"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "dbcontarotary",
+			"table": "cuentas_xp"
+		}
+	},
+	"acls": [
+		{
+		  "principalType": "ROLE",
+		  "principalId": "Administrador",
+		  "permission": "ALLOW",
+		  "accessType": "*"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "Usuario",
+			"permission": "ALLOW",
+			"accessType": "READ"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "$everyone",
+			"permission": "DENY",
+			"accessType": "*"
+		  }
+	  ]
+}

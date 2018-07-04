@@ -1,0 +1,217 @@
+{
+	"name": "Facturasd",
+	"properties": {
+		"codigoFact": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"id": 1,
+			"mysql": {
+				"columnName": "codigo_fact",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"codFacturad": {
+			"type": "string",
+			"required": true,
+			"length": 7,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "cod_facturad",
+				"dataType": "varchar",
+				"dataLength": 7,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"numeroFacturad": {
+			"type": "string",
+			"required": true,
+			"length": 9,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "numero_facturad",
+				"dataType": "varchar",
+				"dataLength": 9,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"numeroMiemsoc": {
+			"type": "string",
+			"required": true,
+			"length": 10,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "numero_miemsoc",
+				"dataType": "varchar",
+				"dataLength": 10,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"fechaEmision": {
+			"type": "date",
+			"required": true,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "fecha_emision",
+				"dataType": "date",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"observacion": {
+			"type": "string",
+			"required": true,
+			"length": 100,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "observacion",
+				"dataType": "varchar",
+				"dataLength": 100,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"subtotal": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "subtotal",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "N"
+			}
+		},
+		"iva": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "iva",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "N"
+			}
+		},
+		"descuento": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "descuento",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "N"
+			}
+		},
+		"total": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "total",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "N"
+			}
+		},
+		"terminoPago": {
+			"type": "number",
+			"required": false,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"mysql": {
+				"columnName": "termino_pago",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "Y"
+			}
+		},
+		"estado": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 3,
+			"scale": 0,
+			"mysql": {
+				"columnName": "estado",
+				"dataType": "tinyint",
+				"dataLength": null,
+				"dataPrecision": 3,
+				"dataScale": 0,
+				"nullable": "N"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "dbcontarotary",
+			"table": "facturasd"
+		}
+	},
+	"acls": [
+		{
+		  "principalType": "ROLE",
+		  "principalId": "Administrador",
+		  "permission": "ALLOW",
+		  "accessType": "*"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "Usuario",
+			"permission": "ALLOW",
+			"accessType": "READ"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "$everyone",
+			"permission": "DENY",
+			"accessType": "*"
+		  }
+	  ]
+}

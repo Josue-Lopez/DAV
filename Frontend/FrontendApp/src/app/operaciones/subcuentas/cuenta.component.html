@@ -1,0 +1,247 @@
+<form>
+    <div class="form-row align-items-center">
+      <div class="col-auto">
+        <label class="sr-only" for="inlineFormInput">Codigo</label>
+        <input type="number" class="form-control mb-2" placeholder="Codigo" #codigo>
+      </div>
+      <div class="col-auto">
+        <label class="sr-only" for="inlineFormInputGroup">Nombre</label>
+        <input type="text" class="form-control mb-2" placeholder="Nombre" #nombre>
+      </div>
+      <div class="col-auto">
+        <button (click)="Buscar(codigo.value, nombre.value)" data-toggle="modal" data-target=".TablaSubCuentas" class="btn btn-primary mb-2">Buscar</button>
+      </div>
+    </div>
+  </form>
+<!-- BOTON PARA PARA MODAL CUENTAS DE NIVEL 1 -->
+<div class="text-right">
+    <button type="button" class="btn btn-primary" (click)="Limpiar()" data-toggle="modal" data-target="#AddCuentas">
+        Agregar
+    </button>
+    <button type="button" class="btn btn-danger" (click)="getCuentasInactivas()" data-toggle="modal" data-target=".TablaCuentasInactivas">
+        Cuentas inactivas
+    </button>
+</div>
+
+<br>
+<!-- TABLA PRINCIPAL -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Cuenta</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of cuenta">
+            <td>{{item.codCuenta}}</td>
+            <td>{{item.nombreCuenta}}</td>
+            <td>
+                <a href="#" (click)="ObtenerCuentaID(item); ObtenerNivelCuenta('primero')" class="btn btn-success" data-toggle="modal" data-target="#AddSubcuentas">Subcuenta</a> |
+                <a (click)="CargarTablaSubCuenta(item)" href="#" class="btn btn-dark" data-toggle="modal" data-target=".TablaSubCuentas">Ver</a> |
+                <a href="#" (click)="Binding(item)" class="btn btn-info" data-toggle="modal" data-target="#AddCuentas">Editar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<!-- TABLA PARA VER CUENTAS INACTIVAS-->
+<div class="modal fade TablaCuentasInactivas" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-body">
+            <div class="modal-content">
+                <br>
+                <div class="container">
+
+                    <div class="text-center">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="BorrarHistorial()">X</button>
+                    </div>
+                </div>
+                <hr>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Cuenta</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of cuentaIn">
+                            <td>{{item.codCuenta}}</td>
+                            <td>{{item.nombreCuenta}}</td>
+                            <td>
+                                <a href="#" (click)="Binding(item)" class="btn btn-info" data-toggle="modal" data-dismiss="modal" data-target="#AddCuentas">Editar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TABLA PARA VER SUBCUENTAS ACTIVAS-->
+<div class="modal fade TablaSubCuentas" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-body">
+            <div class="modal-content">
+                <br>
+                <div class="container">
+
+                    <div class="text-center">
+                        <button type="button" class="btn btn-secondary text-left" (click)="AtrasDelete()">Atras</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="BorrarHistorial();nombre.value = ''; codigo.value =''">X</button>
+                    </div>
+                </div>
+                <hr>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Cuenta</th>
+                            <th scope="col">Codigo de cuenta</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of sbcuenta">
+                            <td>{{item.codSubcuenta}}</td>
+                            <td>{{item.nombreSubcuenta}}</td>
+                            <td>{{item.codCuenta}}</td>
+                            <td>
+                                <a (click)="SubCuentas(item); ObtenerSubCuentaID(item); AtrasAdd(item)" href="#" class="btn btn-dark" data-toggle="modal">Ver</a>
+                                <a ng-disabled="this.   se" href="#" (click)="ObtenerSubCuentaID(item); ObtenerNivelCuenta('otro'); BorrarHistorial()" class="btn btn-success"
+                                    data-toggle="modal" data-dismiss="modal" data-target="#AddSubcuentas">Add</a>
+                                <button type="button" class="btn btn-info" data-dismiss="modal" data-target="#AddSubcuentas" (click)="Binding2(item); BorrarHistorial()"
+                                    data-toggle="modal">Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="#" (click)="SubCuentasInactivas()" class="btn btn-danger" data-toggle="modal" data-toggle="modal" data-target=".TablaSubCuentasInactivas">Inactivas</a>
+<!-- TABLA PARA VER SUBCUENTAS INACTIVAS-->
+<div class="modal fade TablaSubCuentasInactivas" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-body">
+            <div class="modal-content">
+                <br>
+                <div class="container">
+
+                    <div class="text-center">
+                        <button type="button" class="btn btn-secondary text-left" (click)="AtrasDelete()">Atras</button>
+                        <button type="button" class="btn btn-danger text-right" data-dismiss="modal" (click)="BorrarHistorial()">X</button>
+                    </div>
+                </div>
+                <hr>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Codigo</th>
+                            <th scope="col">Cuenta</th>
+                            <th scope="col">Codigo de cuenta</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of sbcuenta">
+                            <td>{{item.codSubcuenta}}</td>
+                            <td>{{item.nombreSubcuenta}}</td>
+                            <td>{{item.codCuenta}}</td>
+                            <td>
+                                <button type="button" class="btn btn-info" data-dismiss="modal" data-target="#AddSubcuentas" (click)="Binding2(item); BorrarHistorial()"
+                                    data-toggle="modal">Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- AGREGAR Y MODIFICAR CUENTAS Y SUBCUENTAS -->
+<!-- ... -->
+<!-- ... -->
+
+<!-- MODAL PARA AGREGAR Y MODIFICAR CUENTAS DE NIVEL 1 -->
+<div class="modal fade" id="AddCuentas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cuentas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-row">
+                    <input id="cod" type="text" [(ngModel)]="ct.codCuenta" [ngModelOptions]="{standalone: true}" class="form-control mb-2 mr-sm-2 mb-sm-0"
+                        placeholder="Codigo">
+                    <br>
+                    <input type="text" [(ngModel)]="ct.nombreCuenta" [ngModelOptions]="{standalone: true}" class="form-control mb-2 mr-sm-2 mb-sm-0"
+                        placeholder="Cuenta">
+                    <br>
+                    <div class="form-group col-md-4">
+                        <br>
+                        <select class="form-control" [(ngModel)]="ct.estado" size="1" [ngModelOptions]="{standalone: true}">
+                            <option selected>Activo</option>
+                            <option>Inactivo</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" (click)="Guardar(ct)" data-dismiss="modal">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL PARA AGREGAR Y MODIFICAR SUBCUENTAS -->
+<div class="modal fade" id="AddSubcuentas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sub cuentas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-row">
+                    <input type="text" [(ngModel)]="sct.codSubcuenta" [ngModelOptions]="{standalone: true}" class="form-control mb-2 mr-sm-2 mb-sm-0"
+                        placeholder="Codigo">
+                    <br>
+                    <input type="text" [(ngModel)]="sct.nombreSubcuenta" [ngModelOptions]="{standalone: true}" class="form-control mb-2 mr-sm-2 mb-sm-0"
+                        placeholder="Subcuenta">
+                    <br>
+                    <div class="form-group col-md-4">
+                        <br>
+                        <select class="form-control" [(ngModel)]="sct.estado" size="1" [ngModelOptions]="{standalone: true}">
+                            <option>Activo</option>
+                            <option>Inactivo</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" (click)="GuardarSubCuenta(sct)" data-dismiss="modal">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ... -->
+<!-- ... -->

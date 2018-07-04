@@ -1,0 +1,143 @@
+{
+	"name": "Depositos",
+	"properties": {
+		"numCuentaCorr": {
+			"type": "string",
+			"required": true,
+			"length": 45,
+			"precision": null,
+			"scale": null,
+			"id": 2,
+			"mysql": {
+				"columnName": "num_cuenta_corr",
+				"dataType": "varchar",
+				"dataLength": 45,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"codDepo": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"id": 1,
+			"mysql": {
+				"columnName": "cod_depo",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"fechaEmision": {
+			"type": "date",
+			"required": false,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "fecha_emision",
+				"dataType": "date",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"tipoDepo": {
+			"type": "string",
+			"required": false,
+			"length": 10,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "tipo_depo",
+				"dataType": "varchar",
+				"dataLength": 10,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"montoDepo": {
+			"type": "number",
+			"required": false,
+			"length": null,
+			"precision": 10,
+			"scale": 2,
+			"mysql": {
+				"columnName": "monto_depo",
+				"dataType": "double",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 2,
+				"nullable": "Y"
+			}
+		},
+		"refDepo": {
+			"type": "string",
+			"required": false,
+			"length": 45,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "ref_depo",
+				"dataType": "varchar",
+				"dataLength": 45,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"estado": {
+			"type": "number",
+			"required": false,
+			"length": null,
+			"precision": 3,
+			"scale": 0,
+			"mysql": {
+				"columnName": "estado",
+				"dataType": "tinyint",
+				"dataLength": null,
+				"dataPrecision": 3,
+				"dataScale": 0,
+				"nullable": "Y"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "dbcontarotary",
+			"table": "depositos"
+		}
+	},
+	"acls": [
+		{
+		  "principalType": "ROLE",
+		  "principalId": "Administrador",
+		  "permission": "ALLOW",
+		  "accessType": "*"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "Usuario",
+			"permission": "ALLOW",
+			"accessType": "READ"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "$everyone",
+			"permission": "DENY",
+			"accessType": "*"
+		  }
+	  ]
+}

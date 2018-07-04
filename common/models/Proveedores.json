@@ -1,0 +1,172 @@
+{
+	"name": "Proveedores",
+	"properties": {
+		"codProveedor": {
+			"type": "string",
+			"required": true,
+			"length": 13,
+			"precision": null,
+			"scale": null,
+			"id": 1,
+			"mysql": {
+				"columnName": "cod_proveedor",
+				"dataType": "varchar",
+				"dataLength": 13,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"nombre": {
+			"type": "string",
+			"required": false,
+			"length": 30,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "nombre",
+				"dataType": "varchar",
+				"dataLength": 30,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"direccion": {
+			"type": "string",
+			"required": true,
+			"length": 45,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "direccion",
+				"dataType": "varchar",
+				"dataLength": 45,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"ciudad": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"mysql": {
+				"columnName": "ciudad",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "N"
+			}
+		},
+		"telefono": {
+			"type": "string",
+			"required": false,
+			"length": 7,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "telefono",
+				"dataType": "varchar",
+				"dataLength": 7,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"email": {
+			"type": "string",
+			"required": false,
+			"length": 30,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "email",
+				"dataType": "varchar",
+				"dataLength": 30,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"rtn": {
+			"type": "string",
+			"required": true,
+			"length": 20,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "rtn",
+				"dataType": "varchar",
+				"dataLength": 20,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "N"
+			}
+		},
+		"fechac": {
+			"type": "date",
+			"required": false,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "fechac",
+				"dataType": "date",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"estado": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 3,
+			"scale": 0,
+			"mysql": {
+				"columnName": "estado",
+				"dataType": "tinyint",
+				"dataLength": null,
+				"dataPrecision": 3,
+				"dataScale": 0,
+				"nullable": "N"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "dbcontarotary",
+			"table": "proveedores"
+		}
+	},
+	"acls": [
+		{
+		  "principalType": "ROLE",
+		  "principalId": "Administrador",
+		  "permission": "ALLOW",
+		  "accessType": "*"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "Usuario",
+			"permission": "ALLOW",
+			"accessType": "READ"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "$everyone",
+			"permission": "DENY",
+			"accessType": "*"
+		  }
+	  ]
+}

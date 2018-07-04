@@ -1,0 +1,232 @@
+{
+	"name": "Parametros",
+	"properties": {
+		"codParametro": {
+			"type": "number",
+			"required": true,
+			"length": null,
+			"precision": 10,
+			"scale": 0,
+			"id": 1,
+			"mysql": {
+				"columnName": "cod_parametro",
+				"dataType": "int",
+				"dataLength": null,
+				"dataPrecision": 10,
+				"dataScale": 0,
+				"nullable": "N"
+			},
+			"updateOnly": false
+		},
+		"iva": {
+			"type": "string",
+			"required": false,
+			"length": 5,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "iva",
+				"dataType": "varchar",
+				"dataLength": 5,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"ihss": {
+			"type": "string",
+			"required": false,
+			"length": 5,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "ihss",
+				"dataType": "varchar",
+				"dataLength": 5,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"decimotercero": {
+			"type": "string",
+			"required": false,
+			"length": 5,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "decimotercero",
+				"dataType": "varchar",
+				"dataLength": 5,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"decimocuarto": {
+			"type": "string",
+			"required": false,
+			"length": 5,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "decimocuarto",
+				"dataType": "varchar",
+				"dataLength": 5,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"sueldobase": {
+			"type": "string",
+			"required": false,
+			"length": 5,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "sueldobase",
+				"dataType": "varchar",
+				"dataLength": 5,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"fondoReserva": {
+			"type": "string",
+			"required": false,
+			"length": 5,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "fondo_reserva",
+				"dataType": "varchar",
+				"dataLength": 5,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"bonos": {
+			"type": "string",
+			"required": false,
+			"length": 5,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "bonos",
+				"dataType": "varchar",
+				"dataLength": 5,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"impuestoRenta": {
+			"type": "string",
+			"required": false,
+			"length": 5,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "impuesto_renta",
+				"dataType": "varchar",
+				"dataLength": 5,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"horaCierre": {
+			"type": "string",
+			"required": false,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "hora_cierre",
+				"dataType": "time",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"ihssPersonal": {
+			"type": "string",
+			"required": false,
+			"length": 5,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "ihss_personal",
+				"dataType": "varchar",
+				"dataLength": 5,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"horaIngreso": {
+			"type": "string",
+			"required": false,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "hora_ingreso",
+				"dataType": "time",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		},
+		"horaSalida": {
+			"type": "string",
+			"required": false,
+			"length": null,
+			"precision": null,
+			"scale": null,
+			"mysql": {
+				"columnName": "hora_salida",
+				"dataType": "time",
+				"dataLength": null,
+				"dataPrecision": null,
+				"dataScale": null,
+				"nullable": "Y"
+			}
+		}
+	},
+	"settings": {
+		"strict": false,
+		"forceId": false,
+		"replaceOnPUT": true,
+		"idInjection": false,
+		"mysql": {
+			"schema": "dbcontarotary",
+			"table": "parametros"
+		}
+	},
+	"acls": [
+		{
+		  "principalType": "ROLE",
+		  "principalId": "Administrador",
+		  "permission": "ALLOW",
+		  "accessType": "*"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "Usuario",
+			"permission": "ALLOW",
+			"accessType": "READ"
+		},
+		{
+			"principalType": "ROLE",
+			"principalId": "$everyone",
+			"permission": "DENY",
+			"accessType": "*"
+		  }
+	  ]
+}

@@ -1,0 +1,182 @@
+{
+	"_meta": {
+		"sources": [
+			"loopback/common/models",
+			"loopback/server/models",
+			"../common/models",
+			"./models"
+		],
+		"mixins": [
+			"loopback/common/mixins",
+			"loopback/server/mixins",
+			"../common/mixins",
+			"./mixins"
+		]
+	},
+	"User": {
+		"dataSource": "mysql",
+		"public": false
+	},
+	"AccessToken": {
+		"dataSource": "mysql",
+		"public": false
+	},
+	"ACL": {
+		"dataSource": "mysql",
+		"public": false
+	},
+	"RoleMapping": {
+		"dataSource": "mysql",
+		"public" : false,
+		"options": {
+			"strictObjectIDCoercion": true
+		}
+	},
+	"Role": {
+		"dataSource": "mysql"
+	},
+	"Anticipos": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Bancos": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Cheques": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Cierres": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Ciudades": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Cuentas": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Cuentas_Corriente": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Cuentas_Xc": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Cuentas_Xp": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Departamentos": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Depositos": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Detalle_Facturacomp": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Detalle_Facturad": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Donaciones": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Facturascomp": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Facturasd": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Miembros_Socios": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Paises": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Parametros": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Parametroscont": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Pcontable": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Privilegios": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Proveedores": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Recibos": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Subcuenta1": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Subcuenta2": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Subcuenta3": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Subcuenta4": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Subcuenta5": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Subcuenta6": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Subcuentas": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Terminos_Pagos": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Tipo_Miem_Soc": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Tipousuario": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Transacciones": {
+		"dataSource": "mysql",
+		"public": true
+	},
+	"Usuarios": {
+		"dataSource": "mysql",
+		"public": true
+	}
+}

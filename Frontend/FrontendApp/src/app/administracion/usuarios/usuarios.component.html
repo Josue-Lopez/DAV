@@ -1,0 +1,129 @@
+
+    <div class="container-fluid">
+        <button class="btn btn-success" data-toggle="modal" data-target="#crearModal">Crear</button>
+    </div>
+    <div class="text-center">
+        <h2>Usuarios</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Codigo</th>
+                    <th style="text-align: center;">Usuario</th>
+                    <th style="text-align: center;">Tipo</th>
+                    <th style="text-align: center;">Nombre</th>
+                    <th style="text-align: center;">Email</th>
+                    <th style="text-align: center;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of usuarios">
+                    <td style="vertical-align: middle;">{{usuario.codUsuario}}</td>
+                    <td style="vertical-align: middle;">{{usuario.username}}</td>
+                    <td style="vertical-align: middle;">{{usuario.tipoRol}}</td>
+                    <td style="vertical-align: middle;">{{usuario.nombre}}</td>
+                    <td style="vertical-align: middle;">{{usuario.email}}</td>
+                    <th>
+                        <div>
+                                <button type="button" class="btn btn-info" style="vertical-align: middle;" (click)="mostrarEditar(usuario.codUsuario)">Editar</button>
+                                <button type="button" class="btn btn-danger" style="vertical-align: middle;" (click)="eliminarUsuario(usuario.codUsuario)">Eliminar</button>
+                        </div>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+  <div class="modal" id="crearModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <form (ngSubmit)="crearUsuario()" #formCrear="ngForm">
+                <div class="modal-content">
+                        <div class="modal-header">
+                                <h5 class="modal-title">Crear Usuario</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+
+                        <div class="modal-body">
+                                <div class="container">
+                                    <div class="form-group">
+                                        <label for="tipoUsuario">Tipo de Usuario</label>                                                                        
+                                         <select style="width:100%;" [ngModel]="tipoUsuarioNuevo" [ngModelOptions]="{ standalone: true }" (ngModelChange)="onChange($event)">
+                                             <option [value]="tipo.codTipousuario" *ngFor="let tipo of tipoUsuarios">{{tipo.description}}</option>
+                                         </select>                                     
+                                   </div>
+                                    <div class="form-group">
+                                        <label for="usernameNuevo">Usuario</label>
+                                        <input id="usernameNuevo" name="usernameNuevo" [(ngModel)]="usernameNuevo" class="form-control" type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="contraseniaNueva">Contraseña</label>
+                                            <input id="ContraseniaNueva" name="contraseniaNueva" [(ngModel)]="contraseniaNueva" class="form-control" type="password" required>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="nombreNuevo">Nombre</label>
+                                            <input id="NombreNuevo" name="nombreNuevo" [(ngModel)]="nombreNuevo" class="form-control" type="text" required>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="emailNuevo">Email</label>
+                                            <input id="EmailNuevo" name="emailNuevo" [(ngModel)]="emailNuevo" class="form-control" type="text" required>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="modal-footer">
+                                <button type="submit" class="btn btn-success" [disabled]="!formCrear.form.valid">Guardar</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                </div>
+        </form>
+    </div>
+  </div>
+
+  <div class="modal" id="editarModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <form (ngSubmit)="editarUsuario()" #formEditar="ngForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                       
+                            <div class="form-group">
+                                    <label for="tipoUsuario">Tipo de Usuario</label>                                                                        
+                                     <select style="width:100%;" [ngModel]="tipoUsuarioEditar" [ngModelOptions]="{ standalone: true }" (ngModelChange)="onChange($event)">
+                                         <option [value]="tipo.codTipousuario" *ngFor="let tipo of tipoUsuarios">{{tipo.description}}</option>
+                                     </select>                                     
+                               </div>
+                                <div class="form-group">
+                                    <label for="usernameEditar">Usuario</label>
+                                    <input id="usernameEditar" name="usernameEditar" [(ngModel)]="usernameEditar" class="form-control" type="text" required>
+                                </div>
+                                <div class="form-group">
+                                        <label for="contraseniaEditar">Contraseña</label>
+                                        <input id="contraseniaEditar" name="contraseniaEditar" [(ngModel)]="contraseniaEditar" class="form-control" type="password" required>
+                                </div>
+                                <div class="form-group">
+                                        <label for="nombreEditar">Nombre</label>
+                                        <input id="nombreEditar" name="nombreEditar" [(ngModel)]="nombreEditar" class="form-control" type="text" required>
+                                </div>
+                                <div class="form-group">
+                                        <label for="emailEditar">Email</label>
+                                        <input id="emailEditar" name="emailEditar" [(ngModel)]="emailEditar" class="form-control" type="text" required>
+                                </div>
+
+                        <input type="hidden" id="codUsuarioEditar" name="codUsuarioEditar" [(ngModel)]="codUsuarioEditar">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" [disabled]="!formEditar.form.valid">Editar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            </form>
+        </div>
+</div>

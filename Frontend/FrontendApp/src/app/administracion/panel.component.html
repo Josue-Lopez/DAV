@@ -1,0 +1,208 @@
+<div class="wrapper">
+
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini">
+                <b>C</b>R</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg">
+                <b>Club</b>Rotario</span>
+        </a>
+
+        <!-- Sidebar toggle button-->
+
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <!-- Navbar Right Menu -->
+            <div class="pull-right hidden-xs">
+
+                <div class="navbar-custom-menu" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="hidden-xs"> {{this.cookieService.get('nombre')}}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <p>
+                                        Hola! {{this.cookieService.get('nombre')}} ({{this.cookieService.get('email')}})
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-danger btn-flat" (click)="logout()">Cerrar Sesion</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img class="img-responsive" src="https://i.pinimg.com/originals/4e/b9/b9/4eb9b91c1484853ae724bc267070fb97.png" width="55"
+                        height="55" alt="logo">
+                </div>
+                <div class="pull-left info">
+                    <p>Club Rotario</p>
+                </div>
+            </div>
+            <!-- search form -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">MENU</li>
+                <li class="active treeview menu-open">
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Administraci&oacute;n</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/usuarios">
+                                <i class="fa fa-circle-o"></i>Usuarios</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/privilegios">
+                                <i class="fa fa-circle-o"></i>Privilegios</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/ciudades">
+                                <i class="fa fa-circle-o"></i>Ciudades</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/departamentos">
+                                <i class="fa fa-circle-o"></i>Departamentos</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/paises">
+                                <i class="fa fa-circle-o"></i>Paises</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/parametros">
+                                <i class="fa fa-circle-o"></i>Parametros</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/parametros_contables">
+                                <i class="fa fa-circle-o"></i>Parametros Contables</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-th"></i>
+                        <span>Operaciones</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/anticipos">
+                                <i class="fa fa-circle-o"></i>Anticipos</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/bancos">
+                                <i class="fa fa-circle-o"></i>Bancos</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/cheques">
+                                <i class="fa fa-circle-o"></i>Cheques</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/cierres">
+                                <i class="fa fa-circle-o"></i>Cierres</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/cuentas">
+                                <i class="fa fa-circle-o"></i>Cuentas</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/cuentas_corientes">
+                                <i class="fa fa-circle-o"></i>Cuentas Corrientes</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/cxc">
+                                <i class="fa fa-circle-o"></i>Cuentas por cobrar</a>
+                        </li>
+                        <li>
+                            <a *ngIf="esAdministrador" href="panel/cxp">
+                                <i class="fa fa-circle-o"></i>Cuentas por pagar</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa fa-book"></i>
+                        <span>Acerca de</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i>Inicio</a>
+                </li>
+                <li class="active">Dashboard</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <div class="container">
+            <br>
+            <usuarios-table *ngIf="usuarios"></usuarios-table>
+            <dashboard *ngIf="dashboard"></dashboard>
+            <seccion-cuenta *ngIf="cuentas"></seccion-cuenta>
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+        <strong>&copy; 2018 - Club Rotario San Pedro Sula</strong>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+
+
+    </aside>
+
+</div>
